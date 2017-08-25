@@ -37,6 +37,11 @@ namespace PuntoVenta
             pictureBox1.Image = Image.FromFile(url);
         }
 
-        
+        private void btnContenedorPrincipal_Click(object sender, EventArgs e)
+        {
+            ContenedorPrincipal contPrin = new ContenedorPrincipal();
+            this.Hide();
+            contPrin.Show();
+        }
     }
 }

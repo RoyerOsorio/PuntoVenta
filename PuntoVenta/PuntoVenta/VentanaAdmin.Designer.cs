@@ -81,6 +81,7 @@
             this.btnContenedorPrincipal.TabIndex = 4;
             this.btnContenedorPrincipal.Text = "Contenedor Principal";
             this.btnContenedorPrincipal.UseVisualStyleBackColor = true;
+            this.btnContenedorPrincipal.Click += new System.EventHandler(this.btnContenedorPrincipal_Click);
             // 
             // txtCodigo
             // 
