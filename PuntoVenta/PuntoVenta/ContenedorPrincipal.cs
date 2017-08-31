@@ -110,5 +110,12 @@ namespace PuntoVenta
             manCliente.MdiParent = this;
             manCliente.Show();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoProducto manProduc = new MantenimientoProducto();
+            manProduc.MdiParent = this;
+            manProduc.Show();
+        }
     }
 }

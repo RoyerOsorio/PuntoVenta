@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MiLibreria;
 
 namespace PuntoVenta
 {
@@ -16,5 +17,39 @@ namespace PuntoVenta
         {
             InitializeComponent();
         }
+
+
+        public override Boolean Guardar()
+        {
+            try
+            {
+                string cmd = string.Format($"EXEC ActualizarArticulos {txtId.Text.Trim()},{txtDescripcion.Text.Trim()},{txtPrecio.Text.Trim()}");
+                Utilidades.Ejecutar(cmd);
+                MessageBox.Show("¡Artículo guardado correctamente!");
+                return true;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + error.Message);
+                return false;
+            }
+        }
+
+        public override void Eliminar()
+        {
+            try
+            {
+                string cmd = string.Format($"EXEC EliminarArticulos {txtId.Text.Trim()}");
+                Utilidades.Ejecutar(cmd);
+                MessageBox.Show("¡El artículo se ha eliminado!");
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + error.Message);
+            }
+        }
+
+
     }
 }
