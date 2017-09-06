@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace MiLibreria
 {
@@ -22,6 +23,49 @@ namespace MiLibreria
             conexion.Close();
 
             return Ds;
+        }
+
+        public static Boolean ValidarFormulario(Control objeto, ErrorProvider ErrorProvider)
+        {
+            Boolean HayErrores = false;
+
+            foreach (Control item in objeto.Controls)
+            {
+                if (item is ErrorTxtBox)
+                {
+                    ErrorTxtBox obj = (ErrorTxtBox)item;
+                    if (obj.Validar == true)
+                    {
+                        if (string.IsNullOrEmpty(obj.Text.Trim()))
+                        {
+                            ErrorProvider.SetError(obj, "No puede estar vacio");
+                            HayErrores = true;
+                        }
+                    }
+
+                    if (obj.SoloNumeros == true)
+                    {
+                        int contador = 0, LetrasEncontradas = 0;
+
+                        foreach (char letra in obj.Text.Trim())
+                        {
+                            if (char.IsLetter(obj.Text.Trim(),contador))
+                            {
+                                LetrasEncontradas++;
+                            }
+                            contador++;
+                        }
+
+                        if (LetrasEncontradas != 0)
+                        {
+                            HayErrores = true;
+                            ErrorProvider.SetError(obj, "Sólo números");
+                        }
+                    }
+                    
+                }
+            }
+            return HayErrores;
         }
     }
 }

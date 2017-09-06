@@ -21,16 +21,22 @@ namespace PuntoVenta
 
         public override Boolean Guardar()
         {
-            try
+            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
             {
-                string cmd = string.Format($"EXEC ActualizarArticulos {txtId.Text.Trim()},{txtDescripcion.Text.Trim()},{txtPrecio.Text.Trim()}");
-                Utilidades.Ejecutar(cmd);
-                MessageBox.Show("¡Artículo guardado correctamente!");
-                return true;
+                try
+                {
+                    string cmd = string.Format($"EXEC ActualizarArticulos {txtId.Text.Trim()},{txtDescripcion.Text.Trim()},{txtPrecio.Text.Trim()}");
+                    Utilidades.Ejecutar(cmd);
+                    MessageBox.Show("¡Artículo guardado correctamente!");
+                    return true;
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Ha ocurrido un error: " + error.Message);
+                    return false;
+                }
             }
-            catch (Exception error)
-            {
-                MessageBox.Show("Ha ocurrido un error: " + error.Message);
+            else{
                 return false;
             }
         }
@@ -50,6 +56,9 @@ namespace PuntoVenta
             }
         }
 
-
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+        }
     }
 }

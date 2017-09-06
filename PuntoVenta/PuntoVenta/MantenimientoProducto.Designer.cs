@@ -28,34 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtId = new MiLibreria.ErrorTxtBox();
+            this.txtDescripcion = new MiLibreria.ErrorTxtBox();
+            this.txtPrecio = new MiLibreria.ErrorTxtBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(80, 58);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(149, 20);
-            this.txtId.TabIndex = 5;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(118, 99);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(111, 20);
-            this.txtDescripcion.TabIndex = 6;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(95, 148);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(134, 20);
-            this.txtPrecio.TabIndex = 7;
             // 
             // lblId
             // 
@@ -84,17 +64,45 @@
             this.lblPrecio.TabIndex = 10;
             this.lblPrecio.Text = "Precio:";
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(80, 58);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(150, 20);
+            this.txtId.SoloNumeros = true;
+            this.txtId.TabIndex = 11;
+            this.txtId.Validar = true;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(116, 99);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(114, 20);
+            this.txtDescripcion.SoloNumeros = false;
+            this.txtDescripcion.TabIndex = 12;
+            this.txtDescripcion.Validar = true;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(95, 148);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(135, 20);
+            this.txtPrecio.SoloNumeros = false;
+            this.txtPrecio.TabIndex = 13;
+            this.txtPrecio.Validar = true;
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 352);
-            this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.lblId);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblPrecio);
+            this.Controls.Add(this.lblDescripcion);
+            this.Controls.Add(this.lblId);
             this.Name = "MantenimientoProducto";
             this.Text = "MantenimientoProducto";
             this.Controls.SetChildIndex(this.btnSalir, 0);
@@ -102,24 +110,24 @@
             this.Controls.SetChildIndex(this.btnGuardar, 0);
             this.Controls.SetChildIndex(this.btnEliminar, 0);
             this.Controls.SetChildIndex(this.btnNuevo, 0);
-            this.Controls.SetChildIndex(this.txtId, 0);
-            this.Controls.SetChildIndex(this.txtDescripcion, 0);
-            this.Controls.SetChildIndex(this.txtPrecio, 0);
             this.Controls.SetChildIndex(this.lblId, 0);
             this.Controls.SetChildIndex(this.lblDescripcion, 0);
             this.Controls.SetChildIndex(this.lblPrecio, 0);
+            this.Controls.SetChildIndex(this.txtId, 0);
+            this.Controls.SetChildIndex(this.txtDescripcion, 0);
+            this.Controls.SetChildIndex(this.txtPrecio, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblPrecio;
+        private MiLibreria.ErrorTxtBox txtId;
+        private MiLibreria.ErrorTxtBox txtDescripcion;
+        private MiLibreria.ErrorTxtBox txtPrecio;
     }
 }

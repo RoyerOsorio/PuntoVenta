@@ -117,5 +117,10 @@ namespace PuntoVenta
             manProduc.MdiParent = this;
             manProduc.Show();
         }
+
+        private void ContenedorPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
